@@ -1,7 +1,21 @@
 import Nav from './Nav';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { checkPropTypes } from 'prop-types';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+
+/**
+ * Adding Progress Bar for routing
+ */
+Router.onRouteChangeStart = () => {
+    NProgress.start();
+};
+Router.onRouteChangeComplete = () => {
+    NProgress.done();
+};
+Router.onRouteChangeError = () => {
+    NProgress.done();
+};
 
 const Logo = styled.div`
     font-size: 4rem;
